@@ -68,7 +68,7 @@ int main()
             steer_value = -1;
 
           pid_t.UpdateError(fabs(cte));
-          throttle_value = 0.75 - pid_t.TotalError();
+          throttle_value = 0.55 - pid_t.TotalError();
           
           // DEBUG
           std::cout << "CTE: " << cte << " Steering Value: " << steer_value << std::endl;
