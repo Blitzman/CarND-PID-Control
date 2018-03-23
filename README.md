@@ -43,6 +43,8 @@ Code compiles by issuing `mkdir build`, `cd build`, `cmake`, and `make` without 
 
 #### The PID procedure follows what was taught in the lessons
 
+The PID controller implementation can be found in `src/PID.cpp`. That source file implements the `PID::Init`, `PID::UpdateError` and `PID:TotalError` as described in the lessons. The first one just initializes coefficients and variables for the controller whilst the second one computes proportional (P), integral (I), and derivative (D) errors which are then multiplied by the appropriate coefficients in the third method to compute the final controller error.
+
 ### Reflection
 
 #### Describe the effect each of the P, I, D components had in your implementation
