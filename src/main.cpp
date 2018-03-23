@@ -33,7 +33,7 @@ int main()
   uWS::Hub h;
 
   PID pid_s;
-  pid_s.Init(0.13, 0.0002, 3.0);
+  pid_s.Init(0.13, 0.0020, 3.0);
   PID pid_t;
   pid_t.Init(0.3, 0.0, 0.02);
 

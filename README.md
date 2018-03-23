@@ -28,7 +28,7 @@ Tips for setting up the environment can be found [here](https://classroom.udacit
 4. `cd build`
 5. `cmake ..`
 6. `make`
-7. `./UnscentedKF`
+7. `./pid`
 8. Run simulator
 
 ## Rubric
@@ -36,6 +36,8 @@ Tips for setting up the environment can be found [here](https://classroom.udacit
 ### Compiling
 
 #### Your code should compile
+
+Code compiles by issuing `mkdir build`, `cd build`, `cmake`, and `make` without errors. The provided `CMakeLists.txt` was not modified.
 
 ### Implementation
 
@@ -50,3 +52,7 @@ Tips for setting up the environment can be found [here](https://classroom.udacit
 ### The vehicle must successfully drive a lap around the track
 
 #### No tire may leave the drivable portion of the track surface. The car may not pop up onto ledges or roll over any surfaces that would otherwise be considered unsafe (if humans were in the vehicle)
+
+With the aforementioned implementation and parameter settings, the car is able to complete laps in the circuit without leaving the drivable portion of the track surface. The PID controller in action can be checked in the following video:
+
+[![ProjectVideo](http://img.youtube.com/vi/46Wz3tHqwPY/0.jpg)](https://www.youtube.com/watch?v=46Wz3tHqwPY "Self-Driving Car Nanodegree - PID Controller")
