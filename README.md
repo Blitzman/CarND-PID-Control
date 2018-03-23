@@ -49,11 +49,19 @@ The PID controller implementation can be found in `src/PID.cpp`. That source fil
 
 #### Describe the effect each of the P, I, D components had in your implementation
 
+Regarding the PID controller for the steering angle
+
 * The proportional (P) component is the main one whose goal is to steer the car against the cross-track error (i.e., towards the lane center). Only adding this component causes the car to overshoot the lane center.
 * The integral (I) component's goal is to eliminate a systematic error that might be introduced by a biased controlled system. This is not the case of the simulator. Only adding this component causes the car to drive in circles since there is no bias to correct.
-* The derivative or differential (D) component's objective is to avoid the overshooting caused by P by smoothing its approach to the lane center (i.e., smooth the error minimization process and damp oscillations). 
+* The derivative or differential (D) component's objective is to avoid the overshooting caused by P by smoothing its approach to the lane center (i.e., smooth the error minimization process and damp oscillations).
+
+We also implemented a PID controller to control throttle so that the car speeds up when the total error is low and brakes if the error is large. This controller has the same behavior since its aim is to minimize the CTE.
 
 #### Describe how the final hyperparameters were chosen
+
+The final hyperparameters were empirically chosen without needing additional steps like twiddle to keep the car running on the drivable portion of the track. The steering controller was tuned first and then the same process was repeated for the throttle controller. Firstly, we set all coefficients to zero and started increasing the P component until the car is able to complete a loop. This led to an extremely wobbly drive so the D component was then increased until we found a good balance to make the car trajectory smooth enough to complete the track at a decent speed. The I component was not strictly necessary but we found out that a really small one helped in certain situations.
+
+By following this empirical procedure we finally chose (0.13, 0.002, 3.0) for the throttle controller Kp, Ki, and Kd coefficients and (0.3, 0.0, and 0.02) for the speed controller respectively.
 
 ### The vehicle must successfully drive a lap around the track
 
