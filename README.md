@@ -49,6 +49,10 @@ The PID controller implementation can be found in `src/PID.cpp`. That source fil
 
 #### Describe the effect each of the P, I, D components had in your implementation
 
+* The proportional (P) component is the main one whose goal is to steer the car against the cross-track error (i.e., towards the lane center). Only adding this component causes the car to overshoot the lane center.
+* The integral (I) component's goal is to eliminate a systematic error that might be introduced by a biased controlled system. This is not the case of the simulator. Only adding this component causes the car to drive in circles since there is no bias to correct.
+* The derivative or differential (D) component's objective is to avoid the overshooting caused by P by smoothing its approach to the lane center (i.e., smooth the error minimization process and damp oscillations). 
+
 #### Describe how the final hyperparameters were chosen
 
 ### The vehicle must successfully drive a lap around the track
